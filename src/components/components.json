@@ -1,0 +1,5 @@
+{
+  "layout": "component.njk",
+  "permalink": "/components/{{ page.fileSlug }}.js",
+  "tags": "components"
+}

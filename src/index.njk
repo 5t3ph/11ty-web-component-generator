@@ -1,0 +1,95 @@
+---
+title: ⚡️ 11ty Web Component Generator
+component: hello-world
+---
+{# Using Nunjucks to avoid Markdown wrapping the web component in a paragraph tag #}
+
+<small>Made by Stephanie Eckles - <a href="https://twitter.com/5t3ph">@5t3ph</a></small>
+
+<h2>Demo Component: Hello World</h2>
+
+<p>This very basic component will display a "Hello World" banner 1 second after load.</p>
+
+<hello-world></hello-world>
+
+<h2>Using the Generator</h2>
+
+<p><a href="https://www.11ty.dev/docs/">Eleventy (11ty) is a static site generator</a> that makes it possible to mix templating languages. More importantly to this generator is that we can customize the <em>output file type</em> and composite a file from <em>includes</em>.</p>
+
+<p>The web components are generated within a Nunjucks (<code>.njk</code>) template that outputs the final <code>.js</code> file.</p>
+
+<p>This generator works with the inherent features of Eleventy, including that it expects templates and template partials to be placed in <code>_includes</code>.</p>
+
+<p>This leads to the following file structure to create a web component with styles and additional scripting.</p>
+
+<p>First, create the component template file in <code>src/components/[component-name].njk</code>. <em>It is important to kebab-case the file name</em></p>
+
+<p>Then within <code>_includes/components/</code> create:</p>
+
+<pre>
+<code>
+[component-name]/
+  script.js
+  style.css
+</code>
+</pre>
+
+<p>Keep the names of <code>script.js</code> and <code>style.css</code> so that the <code>_includes/component.njk</code> template can successfully include their contents to generate the web component.</p>
+
+<h2>Using a Generated Web Component</h2>
+
+<p>The final web component will be output within <code>public/components/[component-name].js</code> and is ready to be included in another project such as:</p>
+
+<pre>
+	<code>
+{{ '<script type="module" src="path/to/component-name.js"></script>' }}
+{{ '<component-name></component-name>' }}
+	</code>
+</pre>
+
+<h3>Display a Component Within This Generator Project</h3>
+
+<p>Create additional pages in this project directly within <code>src</code> as Nunjuck (<code>.njk</code>) files and add the following frontmatter in addition to any HTML and Nunjuck template tags.</p>
+
+<pre>
+	<code>
+{{ 'title: Page Title' }}
+{{ 'component: component-name' }}
+	</code>
+</pre>
+
+<p>Then the <code>page.njk</code> template will use the <code>component</code> value to include the relative path to the web component script.</p>
+
+<h2>Project Scripts</h2>
+
+<ul>
+	<li><strong><code>npm start</code></strong> - run Eleventy on localhost with included Browsersync hot-reload</li>
+	<li><strong><code>npm run build</code></strong> - run only Eleventy for creating a production build of the generator project</li>
+</ul>
+
+<h2>Web Component Resources</h2>
+
+<p>First a little disclaimer - I am brand new to web components, so I know this doesn't cover all the things you may want to do, or the best way to generically composite them. Submit a PR if you want to help extend this generator!</p>
+
+<p>Here are some resources that helped me put together <a href="https://github.com/5t3ph/css-webring">my first web component</a>:</p>
+
+<ul>
+	<li><a href="https://css-tricks.com/encapsulating-style-and-structure-with-shadow-dom/">Encapsulating Style and Structure with Shadow DOM</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#Working_through_some_simple_examples">Using custom elements</a></li>
+	<li><a href="https://css-tricks.com/creating-a-custom-element-from-scratch/">Creating a Custom Element from Scratch</a></li>
+	<li><a href="https://developers.google.com/web/fundamentals/web-components/customelements">Custom Elements v1: Reusable Web Components</a></li>
+</ul>
+
+<h2 id="11tyresources">11ty Resources</h2>
+
+<p>I'm very fond of 11ty, so here's a list of my other resources:</p>
+
+<p><strong>Learn to build an 11ty site in 20 mins</strong> with my <a href="https://5t3ph.dev/learn-11ty">egghead video course</a> and see how to add a blog and custom data.</p>
+
+<p><strong>Add auto-generated social media images</strong> by following <a href="https://dev.to/5t3ph/automated-social-sharing-images-with-puppeteer-11ty-and-netlify-22ln">my tutorial</a></p>
+
+<p><strong>Explore advanced setup of custom data</strong> through my <a href="https://css-tricks.com/a-community-driven-site-with-eleventy-building-the-site/">tutorial on building a community site</a></p>
+
+<p><strong>For a full-featured starter</strong> check out my <a href="https://11ty-netlify-jumpstart.netlify.app/">11ty Netlify Jumpstart</a> (also works for hosts other than Netlify).</p>
+
+<p><strong>For a featureless Sass starter</strong> grab the template for my <a href="https://github.com/5t3ph/11ty-sass-skeleton">11ty Sass Skeleton</a></p>

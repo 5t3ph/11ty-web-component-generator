@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title }}</title>
+	<link rel="stylesheet" href="{{ '/app.css' | url }}" />
+</head>
+<body>
+	<header>
+		<h1>{{ title }}</h1>
+	</header>
+	<main>
+	{{ content | safe }}
+	</main>
+
+	{%- if component %}
+	{% set componentUrl %}/components/{{ component}}.js{% endset %}
+	<script type="module" src="{{ componentUrl | url}}"></script>
+	{% endif -%}
+</body>
+</html>

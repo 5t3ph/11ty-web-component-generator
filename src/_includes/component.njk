@@ -1,0 +1,30 @@
+{%- set componentName = page.fileSlug %}
+{%- set componentClass = page.fileSlug | createClass %}
+{%- set componentScript %}components/{{componentName}}/script.js{% endset %}
+{%- set componentCss %}components/{{componentName}}/style.css{% endset -%}
+
+export class {{ componentClass }} extends HTMLElement {
+	constructor() {
+    super();
+		
+    this.attachShadow({ mode: "open" });
+  }
+
+  connectedCallback() {
+
+    const { shadowRoot } = this;
+
+    shadowRoot.innerHTML = `
+			<style>
+			* {
+				box-sizing: border-box;
+			}
+			{% include componentCss %}
+			</style>
+			{{ content | safe}}
+    `;
+		{% include componentScript %}
+  }
+}
+
+window.customElements.define("{{ componentName }}", {{ componentClass }});

@@ -1,0 +1,12 @@
+.hello-world {
+  background-color: var(--hw-bgcolor, rgb(25, 25, 155));
+  color: var(--hw-color, white);
+  font-size: var(--hw-font-size, 3rem);
+  text-align: var(--hw-text-align, center);
+  opacity: 0;
+  transition: opacity 180ms ease-in;
+}
+
+.hello-world__visible {
+  opacity: 1;
+}
