@@ -19,6 +19,16 @@ a {
   color: rgb(25, 25, 155);
 }
 
+.button {
+  background-color: rgb(25, 25, 155);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.25em 0.5em;
+  border-radius: 0.15em;
+  font-size: 1.125rem;
+  display: inline-flex;
+}
+
 h1 {
   line-height: 1;
   margin-left: -0.5rem;

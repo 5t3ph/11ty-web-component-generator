@@ -1,4 +1,8 @@
+![](https://repository-images.githubusercontent.com/303895742/105a8780-0da7-11eb-8c1f-7ca10b6e3713)
+
 # ⚡️ 11ty Web Component Generator
+
+> [View the demo Hello World component >](https://11ty-web-component-generator.netlify.app/)
 
 ## Using the Generator
 
