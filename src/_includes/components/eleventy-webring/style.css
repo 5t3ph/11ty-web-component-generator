@@ -1,0 +1,67 @@
+.eleventywr {
+  text-align: var(--eleventywr-text-align, center);
+  color: var(--eleventywr-text-color, inherit);
+  font-family: var(
+    --eleventywr-font-family,
+    -apple-system,
+    blinkmacsystemfont,
+    avenir next,
+    avenir,
+    helvetica neue,
+    helvetica,
+    ubuntu,
+    roboto,
+    noto,
+    segoe ui,
+    arial,
+    sans-serif
+  );
+  font-size: var(--eleventywr-font-size, 1.125rem);
+}
+.eleventywr p,
+.eleventywr-title {
+  margin: 0 0 0.65em;
+}
+.eleventywr-title {
+  color: var(--eleventywr-title-color, inherit);
+  font-size: var(--eleventywr-title-size, 2.5rem);
+  font-family: var(--eleventywr-title-font-family, "Arbutus Slab", sans-serif);
+}
+.eleventywr-list {
+  list-style: none;
+  margin: 0 auto 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: var(--eleventywr-linkflex-justify, center);
+}
+.eleventywr-list li {
+  padding: 0.5em;
+}
+.eleventywr-list li:not(:last-child):after {
+  content: "•";
+  transform: translateX(0.25em) scale(0.8);
+  position: absolute;
+  opacity: 0.6;
+}
+.eleventywr-list a {
+  color: var(--eleventywr-link-color, #0370ba);
+}
+.eleventywr-join {
+  text-decoration: none;
+  text-align: center;
+  background-color: var(--eleventywr-button-bgcolor, #0d3233);
+  color: var(--eleventywr-button-color, #fff);
+  padding: var(--eleventywr-button-padding, 0.25em 1em);
+  border-radius: var(--eleventywr-button-border-radius, 4px);
+  display: inline-flex;
+  font-size: var(--eleventywr-button-font-size, 1.125rem);
+}
+.eleventywr-join:focus {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 1px var(--eleventywr-button-color, #fff),
+    0 0 0 3px var(--eleventywr-button-bgcolor, #0d3233);
+}
+.eleventywr-hide {
+  display: none;
+}
